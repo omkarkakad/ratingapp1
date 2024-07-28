@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>Rating Application</title>
+<style>
+*{font-size:30px;}
+body{background-color:linen;}
+h1{background-color:black;color:white;width:50%;border-radius:40px;}
+.btn{background-color:black;color:white;width:20%;border-radius:40px;}
+.btn:hover{color:red;}
+
+</style>
+
+
+</head>
+<body>
+<center>
+<h1> Rating Application </h1>
+<form onsubmit="find()">
+<input type="number" placeholder="Enter rating between 1 to 5" id="rating" style="width:500px";/>
+</br></br/>
+<input type="submit" value="Find" class="btn"/>
+
+</form>
+<h2 id="msg"/>
+	<script>
+		function find()
+		{
+			event.preventDefault()
+			let rating=document.getElementById("rating");
+			let msg=document.getElementById("msg");
+
+			if (rating.value==="")
+			{
+				alert("u did not enter the rating");
+				msg.innerHTML="";
+				rating.focus();
+				return;
+
+			}
+			let r=parseInt(rating.value);
+			if ( (r<1) || (r>5) )
+			{
+				alert("invalid rating");
+				msg.innerHTML="";
+				rating.value="";
+				rating.focus();
+				return;
+
+			}
+			let res="";
+			if ( (r==5) || (r==4) )
+				res="Excellent"
+			else if ( (r==3) || (r==2) ) 
+				res="Good"
+			else
+				res="Poor"
+			msg.innerHTML=res;
+		}	
+
+
+	</script>
+
+</center>
+
+
+</body>
+
+
+</html>
